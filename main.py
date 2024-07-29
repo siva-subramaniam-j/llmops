@@ -33,7 +33,7 @@ pipe = Pipeline()
 
 pipe.add_component("retriever", InMemoryBM25Retriever(document_store=document_store))
 pipe.add_component("prompt_builder", PromptBuilder(template=template))
-pipe.add_component("llm", OllamaGenerator(model="llama3", url="https://7376-49-206-5-196.ngrok-free.app/api/generate"))
+pipe.add_component("llm", OllamaGenerator(model="llama3", url="localhost:11434/api/generate"))
 pipe.connect("retriever", "prompt_builder.documents")
 pipe.connect("prompt_builder", "llm")
 
